@@ -1,7 +1,7 @@
 <template>
     <section>
         <frontend-header></frontend-header>
-        <div class="container mx-auto mt-5">
+        <div class="content container mx-auto">
             <Nuxt/>
         </div>
     </section>
@@ -19,5 +19,7 @@
 </script>
 
 <style scoped>
-
+.content {
+  margin-top: 100px;
+}
 </style>

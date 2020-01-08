@@ -1,15 +1,16 @@
 <template>
-    <div>
+    <div class="fixed-top">
         <b-navbar toggleable="lg" type="dark" variant="info">
-            <logo class="mr-5"></logo>
+            <logo class="mr-5" link="/">News Parser</logo>
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item class="mr-3" to="/headline">News</b-nav-item>
-                    <b-nav-item class="mr-3" to="/ratings">Ratings</b-nav-item>
+                    <b-nav-item class="mr-3" :exact="false" active-class="active" to="/news">News</b-nav-item>
+                    <b-nav-item class="mr-3" :exact="false"  active-class="active" to="/ratings">Ratings</b-nav-item>
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">
+                    <b-nav-item class="mr-3" v-if="isAdmin" to="/backend/news/1">Site Mannager</b-nav-item>
 
                     <b-nav-item-dropdown right v-if="isAuth">
                         <template v-slot:button-content>
@@ -39,7 +40,7 @@
     export default {
         name: "frontend-header",
         computed: {
-            ...mapGetters('users', ['isAuth'])
+            ...mapGetters('users', ['isAuth', 'isAdmin'])
         },
         methods: {
             ...mapActions('users', ['logout'])

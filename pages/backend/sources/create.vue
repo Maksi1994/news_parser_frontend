@@ -1,5 +1,10 @@
 <template>
-    <source-editor v-if="data" :sourceData="data"></source-editor>
+    <div class="container">
+        <source-editor  class="w-75 mx-auto"
+        @saveChanges="save($event)"
+        :highlightValidation="false">
+      </source-editor>
+    </div>
 </template>
 
 <script>
@@ -10,12 +15,14 @@
         components: {
             SourceEditor
         },
-        async asyncData({$axios}) {
-           return {
-               data: {
-                   name: "AAAA"
-               }
-           }
+        methods: {
+          async save(data) {
+            const {data: {success, id}} = await this.$axios.post('/backend/news-sources/save', data);
+
+            if (success) {
+              this.$router.push('/backend/sources/one/' + id);
+            }
+          }
         }
     }
 </script>

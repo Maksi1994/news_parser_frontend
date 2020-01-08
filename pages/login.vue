@@ -14,6 +14,7 @@
                 <b-form-input
                         id="input-2"
                         v-model="form.password"
+                        type="password"
                         :state="getFieldState('password')"
                 ></b-form-input>
             </b-form-group>
@@ -32,8 +33,9 @@
     </div>
 </template>
 
+
 <script>
-    import {required, minLength, email} from 'vuelidate/lib/validators'
+    import {required, minLength, email} from 'vuelidate/lib/validators';
     import {mapActions} from 'vuex';
 
     export default {

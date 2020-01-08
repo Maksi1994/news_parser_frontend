@@ -1,7 +1,7 @@
 <template>
     <section>
         <backend-header></backend-header>
-        <div>
+        <div class="content">
             <Nuxt/>
         </div>
     </section>
@@ -20,5 +20,7 @@
 </script>
 
 <style scoped>
-
+  .content {
+    margin-top: 100px;
+  }
 </style>

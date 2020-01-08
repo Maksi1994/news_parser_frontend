@@ -33,6 +33,7 @@
                     <b-form-group id="input-group-2" label="Password:">
                         <b-form-input
                                 id="input-2"
+                                  type="password"
                                 v-model="password"
                                 :state="getFieldState('password')"
                         ></b-form-input>
@@ -41,6 +42,7 @@
                     <b-form-group id="input-group-2" label="Repeat Password:">
                         <b-form-input
                                 id="input-2"
+                                  type="password"
                                 v-model="repeat_password"
                                 :state="getFieldState('repeat_password')"
                         ></b-form-input>

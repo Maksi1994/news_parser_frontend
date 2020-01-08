@@ -22,6 +22,7 @@ module.exports = {
     ** Global CSS
     */
     css: [
+        '@node_modules/@fortawesome/fontawesome-free/css/all.css',
         '@node_modules/bootstrap/dist/css/bootstrap.css',
         '@node_modules/bootstrap-vue/dist/bootstrap-vue.css',
     ],
