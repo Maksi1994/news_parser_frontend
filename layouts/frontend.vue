@@ -1,7 +1,7 @@
 <template>
     <section>
         <frontend-header></frontend-header>
-        <div class="content container mx-auto">
+        <div class="content mx-auto">
             <Nuxt/>
         </div>
     </section>
