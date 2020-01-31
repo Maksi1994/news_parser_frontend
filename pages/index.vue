@@ -1,13 +1,14 @@
 <template>
-  <section class="main-page">
-    <section class="w-100">
-      <news-banner :list="list"> </news-banner>
-    </section>
+    <section class="main-page">
+        <section class="w-100">
+            <news-banner :list="list | slice(0, 6)"></news-banner>
+        </section>
 
-    <section class="container articles-groups mx-auto pt-5 d-flex py-5">
-        <news-aritcles-group class="news-aritcles-group" :title="'Latest'"></news-aritcles-group>
+        <section class="container articles-groups mx-auto pt-5 d-flex py-5">
+            <news-articles-group :list="list | slice(6)" class="news-aritcles-group"
+                                 title="Latest News"></news-articles-group>
+        </section>
     </section>
-  </section>
 </template>
 
 <script>
@@ -17,32 +18,32 @@
     export default {
         layout: 'frontend',
         data() {
-          return {
-            list: []
-          }
+            return {
+                list: []
+            }
         },
         async asyncData({$axios}) {
-          const rez = await $axios.get('/news/get-latest-news');
+            const rez = await $axios.get('/news/get-latest-news');
 
-          return {
-            list: rez.data
-          }
+            return {
+                list: rez.data
+            }
         },
         components: {
-          NewsBanner,
-          NewsArticlesGroup
+            NewsBanner,
+            NewsArticlesGroup
+        },
+        filters: {
+            slice(array, from, count) {
+                return count ? array.slice(from, count) : array.slice(from) ;
+            }
         }
     }
 </script>
 
 <style scoped>
     .main-page {
-      margin-top: -44px;
+        margin-top: -44px;
     }
 
-    .articles-groups {
-      news-aritcles-group {
-        width: 40%;
-      }
-    }
 </style>
